@@ -25,7 +25,7 @@ const Dashboard = ({ children }) => {
 
   return (
     <div className="bg-gray-cus-1 flex min-h-screen">
-      <div className="w-[18%] shadow-md bg-white">
+      <div className="w-[18%] shadow-lg bg-white">
         <DashboardMenu />
       </div>
       <div className="w-[82%]">

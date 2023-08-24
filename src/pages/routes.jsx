@@ -3,6 +3,8 @@ import Login from "./login/Login";
 import Home from "./home/Home";
 import UserOverview from "./dashboard/UserOverview";
 import Signup from "./signup/Signup";
+import ForgotPassword from "./forgot-password/ForgotPassword";
+import ResetPassword from "./forgot-password/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <Signup />,
+  },
+  {
+    path: "/user/forgot-password",
+    element: <ForgotPassword />,
+  },
+  {
+    path: "/user/reset-password",
+    element: <ResetPassword />,
   },
   {
     path: "/user/dashboard",
