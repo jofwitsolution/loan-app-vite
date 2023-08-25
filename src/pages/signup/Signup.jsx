@@ -41,14 +41,14 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex h-[700px] w-[1000px] mx-auto my-[80px] shadow-md">
-      <div className="w-[45%] bg-color-secondary relative">
+    <div className="flex flex-col items-center md:items-stretch md:flex-row md:h-[700px] md:w-[1000px] mx-auto my-[80px] md:shadow-md">
+      <div className="w-[90%] md:w-[45%] bg-color-secondary relative">
         <img src={amico} alt="amico" className="mt-[100px]" />
         <div className="z-[2] absolute text-[25px] top-[30px] left-[30px] text-white font-bold">
           <Link to="/">Home</Link>
         </div>
       </div>
-      <div className="w-[55%] px-[50px] py-[20px]">
+      <div className="w-[98%] md:w-[55%] px-[50px] py-[20px]">
         <h1 className="text-center mb-[40px] text-[28px] font-bold">Sign Up</h1>
         <div>
           {error && (

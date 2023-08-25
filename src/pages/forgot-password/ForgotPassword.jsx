@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import images from "../../constants/images";
 import styles from "../../styles/tailwind";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import apiClient from "../../services/api-client";
+import { toast } from "react-toastify";
 
 const ForgotPassword = () => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleRecover = (e) => {
+  const handleRecover = async (e) => {
     e.preventDefault();
     setError("");
 
@@ -18,7 +22,22 @@ const ForgotPassword = () => {
     }
 
     setLoading(true);
+    try {
+      const { data } = await apiClient.post("/auth/forgot-password", { email });
+
+      console.log(data);
+      toast.success(data.msg);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      if (error?.response?.data?.msg) {
+        setError(error.response.data.msg);
+      }
+    } finally {
+      setLoading(false);
+    }
   };
+
   return (
     <div className="flex justify-center px-[20px]">
       <div className="sm:w-[400px] mt-[50px] md:mt-[80px]">

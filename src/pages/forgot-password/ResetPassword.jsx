@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import images from "../../constants/images";
 import styles from "../../styles/tailwind";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
+import apiClient from "../../services/api-client";
+import { toast } from "react-toastify";
 
 const ResetPassword = () => {
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams.get("token"));
+  const token = searchParams.get("token");
+
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleReset = (e) => {
+  const handleReset = async (e) => {
     e.preventDefault();
     setError("");
 
@@ -26,7 +30,27 @@ const ResetPassword = () => {
     }
 
     setLoading(true);
+    try {
+      const { data } = await apiClient.post(
+        `/auth/reset-password`,
+        { newPassword: password },
+        {
+          params: { token },
+        }
+      );
+
+      toast.success(data.msg);
+      navigate("/login");
+    } catch (error) {
+      console.log(error);
+      if (error?.response?.data?.msg) {
+        setError(error.response.data.msg);
+      }
+    } finally {
+      setLoading(false);
+    }
   };
+
   return (
     <div className="flex justify-center px-[20px]">
       <div className="sm:w-[400px] mt-[50px] md:mt-[80px]">
