@@ -1,38 +1,24 @@
-import React, { useEffect, useState } from "react";
-import apiClient from "../../services/api-client";
-import Cookies from "js-cookie";
+import React, { useContext } from "react";
 import DashboardHeader from "./DashboardHeader";
 import DashboardMenu from "./DashboardMenu";
+import { GlobalContext } from "../../providers/ContextProvider";
+import DashboardRight from "./DashboardRight";
 
 const Dashboard = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState("");
-
-  useEffect(() => {
-    const getProfile = async () => {
-      try {
-        const { data } = await apiClient.get("/users/current-user", {
-          withCredentials: true,
-        });
-        setCurrentUser(data.user);
-        console.log(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getProfile();
-  }, []);
+  const { currentUser } = useContext(GlobalContext);
 
   return (
     <div className="bg-gray-cus-1 flex min-h-screen">
       <div className="w-[18%] shadow-lg bg-white">
-        <DashboardMenu />
+        <DashboardMenu currentUser={currentUser} />
       </div>
       <div className="w-[82%]">
         <DashboardHeader currentUser={currentUser} />
-        <div>
-          <div>{children}</div>
-          <div>Right Layout</div>
+        <div className="flex gap-[22px] px-[22px] pt-[30px]">
+          <div className="w-[70%]">{children}</div>
+          <div className="w-[30%]">
+            <DashboardRight />
+          </div>
         </div>
       </div>
     </div>

@@ -25,10 +25,8 @@ const Login = () => {
 
     setLoading(true);
     try {
-      const { data } = await apiClient.post("/auth/login", formData);
-
-      console.log(data);
-      navigate("/user/dashboard");
+      await apiClient.post("/auth/login", formData);
+      window.location = "/user/dashboard";
     } catch (error) {
       console.log(error);
       if (error?.response?.data?.msg) {
