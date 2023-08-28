@@ -5,7 +5,7 @@ import avatar from "../assets/images/avatar.png";
 import search from "../assets/images/search.png";
 import atm_card from "../assets/images/atm-card.png";
 
-import menu from "../assets/images/icons/menu.png";
+import menu from "../assets/images/icons/menu.png"; //change file name
 import settings from "../assets/images/icons/settings.png";
 import loan_time from "../assets/images/icons/loan-time.png";
 import log_out from "../assets/images/icons/log-out.png";
