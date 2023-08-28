@@ -5,6 +5,7 @@ import UserOverview from "./dashboard/UserOverview";
 import Signup from "./signup/Signup";
 import ForgotPassword from "./forgot-password/ForgotPassword";
 import ResetPassword from "./forgot-password/ResetPassword";
+import AdminOverview from "./dashboard/AdminOverview";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/user/dashboard",
     element: <UserOverview />,
+  },
+  {
+    path: "/admin/dashboard",
+    element: <AdminOverview />,
   },
 ]);
 

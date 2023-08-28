@@ -51,7 +51,7 @@ export const adminLinks = [
   {
     label: "Users",
     path: "/admin/dashboard/users",
-    icon: images.menu,
+    icon: images.users,
   },
   {
     label: "Transaction",

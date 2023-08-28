@@ -1,8 +1,8 @@
 import React from "react";
-import images from "../../constants/images";
+import images from "../../../constants/images";
 import { Link, NavLink } from "react-router-dom";
-import { userLinks, adminLinks } from "../../data/links";
-import apiClient from "../../services/api-client";
+import { userLinks, adminLinks } from "../../../data/links";
+import apiClient from "../../../services/api-client";
 
 const activeStyle =
   "flex gap-2 pl-[25px] py-[16px] text-color-primary text-[18px] font-[700] rounded-[6px] shadow shadow-color-primary border-l-[5px] border-b-[1px] border-color-primary bg-gray-cus-1";

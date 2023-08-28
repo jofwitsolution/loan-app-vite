@@ -25,8 +25,12 @@ const Login = () => {
 
     setLoading(true);
     try {
-      await apiClient.post("/auth/login", formData);
-      window.location = "/user/dashboard";
+      const { data } = await apiClient.post("/auth/login", formData);
+      if (data.role === "admin") {
+        window.location = "/admin/dashboard";
+      } else {
+        window.location = "/user/dashboard";
+      }
     } catch (error) {
       console.log(error);
       if (error?.response?.data?.msg) {

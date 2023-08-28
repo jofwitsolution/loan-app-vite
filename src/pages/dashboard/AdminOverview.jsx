@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Dashboard from "./common/Dashboard";
 import images from "../../constants/images";
 import { BsArrowUpShort, BsArrowDownShort } from "react-icons/bs";
 
-const UserOverview = () => {
+const AdminOverview = () => {
   return (
     <>
       <Dashboard>
@@ -68,4 +68,4 @@ const UserOverview = () => {
   );
 };
 
-export default UserOverview;
+export default AdminOverview;

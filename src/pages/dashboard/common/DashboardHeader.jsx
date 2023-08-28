@@ -1,5 +1,5 @@
 import React from "react";
-import images from "../../constants/images";
+import images from "../../../constants/images";
 
 const DashboardHeader = ({ currentUser }) => {
   const fullName = `${currentUser.firstName} ${currentUser.lastName}`;

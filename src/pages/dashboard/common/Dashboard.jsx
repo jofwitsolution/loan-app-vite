@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import DashboardHeader from "./DashboardHeader";
 import DashboardMenu from "./DashboardMenu";
-import { GlobalContext } from "../../providers/ContextProvider";
+import { GlobalContext } from "../../../providers/ContextProvider";
 import DashboardRight from "./DashboardRight";
 
 const Dashboard = ({ children }) => {
@@ -17,7 +17,7 @@ const Dashboard = ({ children }) => {
         <div className="flex gap-[22px] px-[22px] pt-[30px]">
           <div className="w-[70%]">{children}</div>
           <div className="w-[30%] hidden xl:block">
-            <DashboardRight />
+            <DashboardRight currentUser={currentUser} />
           </div>
         </div>
       </div>
