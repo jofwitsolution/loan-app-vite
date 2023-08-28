@@ -16,7 +16,7 @@ const Dashboard = ({ children }) => {
         <DashboardHeader currentUser={currentUser} />
         <div className="flex gap-[22px] px-[22px] pt-[30px]">
           <div className="w-[70%]">{children}</div>
-          <div className="w-[30%]">
+          <div className="w-[30%] hidden xl:block">
             <DashboardRight />
           </div>
         </div>
