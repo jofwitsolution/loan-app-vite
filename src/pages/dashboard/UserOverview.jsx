@@ -1,9 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Dashboard from "./common/Dashboard";
 import images from "../../constants/images";
 import { BsArrowUpShort, BsArrowDownShort } from "react-icons/bs";
+import { useFetch } from "../../hooks/useFetch";
+import { GlobalContext } from "../../providers/ContextProvider";
 
 const UserOverview = () => {
+  const { currentUser } = useContext(GlobalContext);
+  const endPoint =
+    currentUser?.role === "admin"
+      ? "/users/admin-overview"
+      : "/users/user-overview";
+  const { data, isSuccess } = useFetch(endPoint, "get-overiew");
+
+  const [overview, setOverview] = useState({
+    balance: 0,
+    activeLoanAmount: 0,
+    totalLoans: 0,
+    declinedLoans: 0,
+  });
+
+  useEffect(() => {
+    if (isSuccess) {
+      setOverview(data.overview);
+    }
+  }, [isSuccess]);
+
   return (
     <>
       <Dashboard>
@@ -17,7 +39,7 @@ const UserOverview = () => {
                 <span>Available Balance</span>
               </div>
               <div className="text-color-primary text-[20px] md:text-[25px] font-bold">
-                <span>$70,000.00</span>
+                <span>${overview.balance}</span>
               </div>
             </div>
             <div className="flex gap-4">
@@ -39,26 +61,36 @@ const UserOverview = () => {
             </div>
             <div className="flex flex-col border-l border-black pl-[8px]">
               <span className="font-[500]">Active Loan</span>
-              <span className="font-[700] mt-3">$4,000,000</span>
+              <span className="font-[700] mt-3">
+                ${overview.activeLoanAmount}
+              </span>
             </div>
             <div className="flex flex-col items-center border-l border-black pl-[8px]">
               <span className="font-[500]">Total Loan Request</span>
               <span className="font-[700] mt-3 flex gap-[4px] items-center">
-                <span>40</span>
-                <span className="text-green-500 flex">
-                  <BsArrowUpShort />{" "}
-                  <span className="text-[10px]">5% last month</span>
-                </span>
+                <span>{overview.totalLoans}</span>
+                {overview.totalLoans ? (
+                  <span className="text-green-500 flex">
+                    <BsArrowUpShort />{" "}
+                    <span className="text-[10px]">5% last month</span>
+                  </span>
+                ) : (
+                  <span></span>
+                )}
               </span>
             </div>
             <div className="flex flex-col items-center border-l border-black pl-[8px]">
               <span className="font-[500]">Total Loan Declined</span>
               <span className="font-[700] mt-3 flex gap-[4px] items-center">
-                <span>8</span>
-                <span className="text-red-500 flex">
-                  <BsArrowDownShort />{" "}
-                  <span className="text-[10px]">2% last month</span>
-                </span>
+                <span>{overview.declinedLoans}</span>
+                {overview.declinedLoans ? (
+                  <span className="text-red-500 flex">
+                    <BsArrowDownShort />{" "}
+                    <span className="text-[10px]">2% last month</span>
+                  </span>
+                ) : (
+                  <span></span>
+                )}
               </span>
             </div>
           </div>
