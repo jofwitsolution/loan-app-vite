@@ -1,5 +1,5 @@
 import React from "react";
-import Dashboard from "./common/Dashboard";
+import Dashboard from "./components/Dashboard";
 import images from "../../constants/images";
 import { BsArrowUpShort, BsArrowDownShort } from "react-icons/bs";
 

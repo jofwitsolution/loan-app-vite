@@ -14,7 +14,7 @@ export function useFetch(
 
     return data;
   };
-  return useQuery([key, query], () => fetchData(), {
+  return useQuery([key, { ...query, url }], () => fetchData(), {
     ...options,
   });
 }
