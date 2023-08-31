@@ -1,6 +1,6 @@
 import React from "react";
 import images from "../../../constants/images";
-import DashboardModal from "./DashboardModal";
+import { Link } from "react-router-dom";
 
 const UserAccount = ({ balance }) => {
   return (
@@ -18,23 +18,20 @@ const UserAccount = ({ balance }) => {
           </div>
         </div>
         <div className="flex gap-4">
-          <button className="h-[38px] w-[115px] flex justify-center items-center rounded-[4px] text-color-primary border border-color-primary hover:bg-gray-100">
+          <Link
+            to="/user/dashboard/withdraw"
+            className="h-[38px] w-[115px] flex justify-center items-center rounded-[4px] text-color-primary border border-color-primary hover:bg-gray-100"
+          >
             Withdraw
-          </button>
-          <button className="h-[38px] w-[115px] flex justify-center items-center rounded-[4px] border-none bg-color-primary text-white hover:bg-color-secondary">
+          </Link>
+          <Link
+            to="/user/dashboard/request-loan"
+            className="h-[38px] w-[115px] flex justify-center items-center rounded-[4px] border-none bg-color-primary text-white hover:bg-color-secondary"
+          >
             Request Loan
-          </button>
+          </Link>
         </div>
       </div>
-      <DashboardModal
-        show={false}
-        action={() => {}}
-        actionLabel="Withdraw"
-        close={() => {}}
-        closeLabel="Cancel"
-      >
-        <div className="h-[100px]"></div>
-      </DashboardModal>
     </>
   );
 };

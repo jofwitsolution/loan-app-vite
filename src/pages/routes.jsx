@@ -6,6 +6,7 @@ import Signup from "./signup/Signup";
 import ForgotPassword from "./forgot-password/ForgotPassword";
 import ResetPassword from "./forgot-password/ResetPassword";
 import AdminOverview from "./dashboard/AdminOverview";
+import UserWithdraw from "./dashboard/UserWithdraw";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/user/dashboard",
     element: <UserOverview />,
+  },
+  {
+    path: "/user/dashboard/withdraw",
+    element: <UserWithdraw />,
   },
   {
     path: "/admin/dashboard",

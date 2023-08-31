@@ -26,3 +26,14 @@
     background-color: #ffffff;
   }
 }
+
+/* Hide the number input spinners */
+.no-spinners input[type="number"]::-webkit-inner-spin-button,
+.no-spinners input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* Remove default margins */
+}
+.no-spinners input[type="number"] {
+  /* Additional styles to prevent visual issues in certain browsers */
+  -moz-appearance: textfield;
+}

@@ -13,7 +13,6 @@ export function formatDate(dateString) {
 }
 
 export function getDateTime(dateString) {
-  console.log(dateString);
   // Array of three-letter month abbreviations
   const monthAbbrev = [
     "Jan",
