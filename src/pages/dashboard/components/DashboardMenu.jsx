@@ -32,8 +32,8 @@ const DashboardMenu = ({ currentUser }) => {
   };
 
   return (
-    <div className="h-screen flex flex-col justify-between">
-      <div>
+    <div className="px-[6px] lg:px-0 h-screen flex flex-col justify-between">
+      <div className="">
         <div className="mt-[25px] flex justify-center">
           <Link to="/">
             <img src={images.yawoo} alt="Yawoo Logo" className="w-[102px]" />

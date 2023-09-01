@@ -4,8 +4,11 @@ import styles from "../../styles/tailwind";
 import apiClient from "../../services/api-client";
 import { toast } from "react-toastify";
 import FullPageLoader from "../../components/loaders/FullPageLoader";
+import { useNavigate } from "react-router-dom";
 
 const UserWithdraw = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     withdrawalType: "",
     bank: "",
@@ -42,6 +45,7 @@ const UserWithdraw = () => {
         withCredentials: true,
       });
       toast.success(`Withdrawal successful`);
+      navigate("/user/dashboard");
     } catch (error) {
       console.log(error);
       if (error?.response?.data?.msg) {
@@ -54,11 +58,11 @@ const UserWithdraw = () => {
 
   return (
     <Dashboard>
-      <div className="shadow-md p-6 ">
-        <h1 className="font-[700] text-[18px] md:text-[22px] mb-4">
+      <div className="bg-white shadow-md p-6 rounded">
+        <h1 className="font-[700] text-[18px] text-center md:text-[22px] mb-4">
           Withdraw Fund
         </h1>
-        <form onSubmit={handleSend} className="max-w-[300px]">
+        <form onSubmit={handleSend} className="max-w-[300px] mx-auto">
           <div className="text-center">
             {error && <p className="text-red-500 text-[12px] my-4">{error}</p>}
           </div>

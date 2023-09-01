@@ -7,6 +7,7 @@ import ForgotPassword from "./forgot-password/ForgotPassword";
 import ResetPassword from "./forgot-password/ResetPassword";
 import AdminOverview from "./dashboard/AdminOverview";
 import UserWithdraw from "./dashboard/UserWithdraw";
+import UserRequestLoan from "./dashboard/UserRequestLoan";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/user/dashboard/withdraw",
     element: <UserWithdraw />,
+  },
+  {
+    path: "/user/dashboard/request-loan",
+    element: <UserRequestLoan />,
   },
   {
     path: "/admin/dashboard",
