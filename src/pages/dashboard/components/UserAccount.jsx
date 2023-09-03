@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const UserAccount = ({ balance }) => {
   return (
     <>
-      <div className="bg-white w-full shadow-md rounded-[8px] py-[16px] px-[20px] flex items-center justify-between">
+      <div className="bg-white w-full shadow-md rounded-[8px] py-[16px] px-[20px] flex flex-col xs:flex-row xs:items-center justify-between">
         <div className="">
           <div>
             <img src={images.wallet} alt="Wallet" />
@@ -17,7 +17,7 @@ const UserAccount = ({ balance }) => {
             <span>{balance}</span>
           </div>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 justify-center xs:justify-normal mt-[10px] xs:mt-0">
           <Link
             to="/user/dashboard/withdraw"
             className="h-[38px] w-[115px] flex justify-center items-center rounded-[4px] text-color-primary border border-color-primary hover:bg-gray-100"

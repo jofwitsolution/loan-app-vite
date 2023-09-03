@@ -6,7 +6,7 @@ const UserStats = ({ overview }) => {
   return (
     <>
       <h2 className="text-[18px] font-[600] mb-2 mt-6">Overal Statistics</h2>
-      <div className="bg-white w-full shadow-md rounded-[8px] py-[16px] px-[12px] flex items-center justify-between">
+      <div className="bg-white w-full shadow-md rounded-[8px] py-[16px] px-[12px] flex items-center justify-between gap-[20px] flex-wrap sm:flex-nowrap">
         <div className="flex flex-col">
           <span className="font-[500]">Paid Interest</span>
           <span className="font-[700] mt-3">{formatCurrency(0)}</span>

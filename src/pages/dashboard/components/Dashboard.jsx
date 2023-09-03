@@ -25,7 +25,7 @@ const Dashboard = ({ children }) => {
           currentUser={currentUser}
           toggleMenu={() => setTabMenu(!isTabMenu)}
         />
-        <div className="flex gap-[22px] px-[22px] pt-[30px]">
+        <div className="flex gap-[22px] px-[18px] sm:px-[22px] pt-[30px]">
           <div className="w-full xl:w-[70%]">{children}</div>
           <div className="w-[30%] hidden xl:block">
             <DashboardRight currentUser={currentUser} />
